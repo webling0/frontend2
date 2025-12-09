@@ -1,12 +1,15 @@
 "use client";
 import React, { useState } from "react";
-
 import { productMain } from "@/data/products";
 import ProductCard1 from "../productCards/ProductCard1";
-export default function SearchModal() {
-  const [loading, setLoading] = useState(false);
+import { Modal } from "react-bootstrap";
+import { useContextElement } from "@/context/Context";
 
+export default function SearchModal() {
+  const { showSearch, setShowSearch } = useContextElement();
+  const [loading, setLoading] = useState(false);
   const [loadedItems, setLoadedItems] = useState(productMain.slice(0, 8));
+
   const handleLoad = () => {
     setLoading(true);
     setTimeout(() => {
@@ -17,15 +20,24 @@ export default function SearchModal() {
       setLoading(false);
     }, 1000);
   };
+
+  const handleClose = () => setShowSearch(false);
+
   return (
-    <div className="modal fade modal-search" id="search">
-      <div className="modal-dialog modal-dialog-centered">
+    <Modal
+      show={showSearch}
+      onHide={handleClose}
+      className="modal-search"
+      id="search"
+      centered
+    >
+      <div className="modal-dialog-centered">
         <div className="modal-content">
           <div className="d-flex justify-content-between align-items-center">
             <h5>Search</h5>
             <span
-              className="icon-close icon-close-popup"
-              data-bs-dismiss="modal"
+              className="icon-close icon-close-popup cursor-pointer"
+              onClick={handleClose}
             />
           </div>
           <form className="form-search" onSubmit={(e) => e.preventDefault()}>
@@ -110,9 +122,8 @@ export default function SearchModal() {
               onClick={() => handleLoad()}
             >
               <button
-                className={`tf-loading btn-loadmore tf-btn btn-reset ${
-                  loading ? "loading" : ""
-                } `}
+                className={`tf-loading btn-loadmore tf-btn btn-reset ${loading ? "loading" : ""
+                  } `}
               >
                 <span className="text text-btn text-btn-uppercase">
                   Load more
@@ -122,6 +133,6 @@ export default function SearchModal() {
           )}
         </div>
       </div>
-    </div>
+    </Modal>
   );
 }

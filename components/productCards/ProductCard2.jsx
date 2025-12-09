@@ -19,6 +19,7 @@ export default function ProductCard2({
     setQuickViewItem,
     addProductToCart,
     isAddedToCartProducts,
+    setShowQuickView,
   } = useContextElement();
 
   useEffect(() => {
@@ -54,9 +55,11 @@ export default function ProductCard2({
         </div>
         <div className="list-btn-main">
           <a
-            href="#quickView"
-            onClick={() => setQuickViewItem(product)}
-            data-bs-toggle="modal"
+            
+            onClick={() => {
+              setQuickViewItem(product);
+              setShowQuickView(true);
+            }}
             className="btn-main-product"
           >
             Quick View
@@ -74,9 +77,8 @@ export default function ProductCard2({
         <ul className="list-color-product">
           {product.colors.map((color, idx) => (
             <li
-              className={`list-color-item color-swatch ${
-                currentImage == color.imgSrc ? "active" : ""
-              }  ${color.bgColor == "bg-white" ? "line" : ""}`}
+              className={`list-color-item color-swatch ${currentImage == color.imgSrc ? "active" : ""
+                }  ${color.bgColor == "bg-white" ? "line" : ""}`}
               onMouseOver={() => setCurrentImage(color.imgSrc)}
               key={idx}
             >

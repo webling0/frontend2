@@ -1,10 +1,18 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { Offcanvas } from "react-bootstrap";
+import { useContextElement } from "@/context/Context";
 
 export default function Categories() {
+  const { showCategories, setShowCategories } = useContextElement();
+
   return (
-    <div
-      className="offcanvas offcanvas-start canvas-filter canvas-categories"
+    <Offcanvas
+      show={showCategories}
+      onHide={() => setShowCategories(false)}
+      placement="start"
+      className="canvas-filter canvas-categories"
       id="shopCategories"
     >
       <div className="canvas-wrapper">
@@ -13,7 +21,7 @@ export default function Categories() {
           <h5>Categories</h5>
           <span
             className="icon-close icon-close-popup"
-            data-bs-dismiss="offcanvas"
+            onClick={() => setShowCategories(false)}
             aria-label="Close"
           />
         </div>
@@ -298,6 +306,6 @@ export default function Categories() {
           </div>
         </div>
       </div>
-    </div>
+    </Offcanvas>
   );
 }

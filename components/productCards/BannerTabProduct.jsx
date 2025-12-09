@@ -1,7 +1,7 @@
 "use client";
 import { useContextElement } from "@/context/Context";
 export default function BannerTabProduct({ product }) {
-  const { setQuickViewItem } = useContextElement();
+  const { setQuickViewItem, setShowQuickView } = useContextElement();
   return (
     <div className="collection-position-2 hover-img">
       <a className="img-style">
@@ -30,9 +30,11 @@ export default function BannerTabProduct({ product }) {
           </div>
         </div>
         <a
-          href="#quickView"
-          onClick={() => setQuickViewItem(product)}
-          data-bs-toggle="modal"
+          
+          onClick={() => {
+            setQuickViewItem(product);
+            setShowQuickView(true);
+          }}
           className="cls-btn text-btn-uppercase"
         >
           Quick View

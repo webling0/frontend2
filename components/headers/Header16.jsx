@@ -2,8 +2,15 @@ import React from "react";
 import Nav from "./Nav";
 import Link from "next/link";
 import Image from "next/image";
+// import CartLength from "../common/CartLength"; // Removed
+import MobileMenuTrigger from "./MobileMenuTrigger";
+import SearchTrigger from "./SearchTrigger";
+import CartTrigger from "./CartTrigger";
 import CartLength from "../common/CartLength";
+// import { useContextElement } from "@/context/Context"; // Removed
+
 export default function Header16() {
+  // const { setShowSearch, setShowCart, setShowMobileMenu } = useContextElement(); // Removed
   return (
     <header
       id="header"
@@ -11,14 +18,7 @@ export default function Header16() {
     >
       <div className="row wrapper-header align-items-center">
         <div className="col-md-4 col-3 d-xl-none">
-          <a
-            href="#mobileMenu"
-            className="mobile-menu"
-            data-bs-toggle="offcanvas"
-            aria-controls="mobileMenu"
-          >
-            <i className="icon icon-categories" />
-          </a>
+          <MobileMenuTrigger />
         </div>
         <div className="col-xl-9 col-md-4 col-6">
           <div className="d-xl-flex align-items-xl-center gap-xl-60">
@@ -44,35 +44,7 @@ export default function Header16() {
           <div className="d-flex justify-content-end align-items-center gap-16 gap-xl-24">
             <ul className="nav-icon d-flex justify-content-end align-items-center">
               <li className="nav-search">
-                <a
-                  href="#search"
-                  data-bs-toggle="modal"
-                  className="nav-icon-item"
-                >
-                  <svg
-                    className="icon"
-                    width={24}
-                    height={24}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                      stroke="#181818"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M21.35 21.0004L17 16.6504"
-                      stroke="#181818"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
+                <SearchTrigger />
               </li>
             </ul>
             <span className="br-line type-vertical d-none d-sm-block bg-white opacity-10" />
@@ -109,7 +81,7 @@ export default function Header16() {
                       Login
                     </Link>
                     <p className="text-center text-secondary-2">
-                      Don’t have an account?
+                      Don’t have an account?{" "}
                       <Link href={`/register`}>Register</Link>
                     </p>
                   </div>
@@ -118,7 +90,7 @@ export default function Header16() {
                   </div>
                 </div>
               </li>
-              <li className="nav-wishlist">
+              {/* <li className="nav-wishlist">
                 <Link href={`/wish-list`} className="nav-icon-item">
                   <svg
                     className="icon"
@@ -137,13 +109,9 @@ export default function Header16() {
                     />
                   </svg>
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-cart">
-                <a
-                  href="#shoppingCart"
-                  data-bs-toggle="modal"
-                  className="nav-icon-item"
-                >
+                <CartTrigger>
                   <svg
                     className="icon"
                     width={24}
@@ -164,7 +132,7 @@ export default function Header16() {
                     {" "}
                     <CartLength />
                   </span>
-                </a>
+                </CartTrigger>
               </li>
             </ul>
           </div>

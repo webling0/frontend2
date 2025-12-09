@@ -1,7 +1,17 @@
-import Link from "next/link";
+"use client";
 import React from "react";
+import Link from "next/link";
+import { useContextElement } from "@/context/Context";
 
 export default function ToolbarBottom() {
+  const {
+    setShowSearch,
+    setShowCart,
+    setShowWishlist,
+    setShowCategories,
+    homeActive,
+  } = useContextElement();
+
   return (
     <div className="tf-toolbar-bottom">
       <div className="toolbar-item">
@@ -25,11 +35,7 @@ export default function ToolbarBottom() {
         </Link>
       </div>
       <div className="toolbar-item">
-        <a
-          href="#shopCategories"
-          data-bs-toggle="offcanvas"
-          aria-controls="shopCategories"
-        >
+        <a onClick={() => setShowCategories(true)} className="pointer">
           <div className="toolbar-icon">
             <svg
               className="icon"
@@ -49,7 +55,7 @@ export default function ToolbarBottom() {
         </a>
       </div>
       <div className="toolbar-item">
-        <a href="#search" data-bs-toggle="modal">
+        <a onClick={() => setShowSearch(true)} className="pointer">
           <div className="toolbar-icon">
             <svg
               className="icon"
@@ -69,7 +75,7 @@ export default function ToolbarBottom() {
         </a>
       </div>
       <div className="toolbar-item">
-        <a href="#wishlist" data-bs-toggle="modal">
+        <a onClick={() => setShowWishlist(true)} className="pointer">
           <div className="toolbar-icon">
             <svg
               className="icon"
@@ -90,7 +96,7 @@ export default function ToolbarBottom() {
         </a>
       </div>
       <div className="toolbar-item">
-        <a href="#shoppingCart" data-bs-toggle="modal">
+        <a onClick={() => setShowCart(true)} className="pointer">
           <div className="toolbar-icon">
             <svg
               className="icon"

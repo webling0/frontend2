@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useContextElement } from "@/context/Context";
 import { allProducts } from "@/data/products";
 import ProductStikyBottom from "../ProductStikyBottom";
+import AddToCart from "@/components/common/AddToCart";
 export default function Details3({ product = allProducts[0] }) {
   const [activeColor, setActiveColor] = useState("gray");
   const [quantity, setQuantity] = useState(1);
@@ -15,9 +16,9 @@ export default function Details3({ product = allProducts[0] }) {
     addProductToCart,
     isAddedToCartProducts,
     isAddedtoCompareItem,
-    addToWishlist,
+    addToWishlist, setShowDeliveryReturn, setShowAskQuestion, setShowShare,
     isAddedtoWishlist,
-    addToCompareItem,
+    addToCompareItem, setShowCompare,
     cartProducts,
     updateQuantity,
   } = useContextElement();
@@ -112,8 +113,8 @@ export default function Details3({ product = allProducts[0] }) {
                           quantity={
                             isAddedToCartProducts(product.id)
                               ? cartProducts.filter(
-                                  (elm) => elm.id == product.id
-                                )[0].quantity
+                                (elm) => elm.id == product.id
+                              )[0].quantity
                               : quantity
                           }
                           setQuantity={(qty) => {
@@ -126,56 +127,20 @@ export default function Details3({ product = allProducts[0] }) {
                         />
                       </div>
                       <div>
-                        <div className="tf-product-info-by-btn mb_10">
-                          <a
-                            onClick={() =>
-                              addProductToCart(product.id, quantity)
-                            }
-                            className="btn-style-2 flex-grow-1 text-btn-uppercase fw-6 btn-add-to-cart"
-                          >
-                            <span>
-                              {isAddedToCartProducts(product.id)
-                                ? "Already Added"
-                                : "Add to cart -"}
-                            </span>
-                            <span className="tf-qty-price total-price">
-                              $
-                              {isAddedToCartProducts(product.id)
-                                ? (
-                                    product.price *
-                                    cartProducts.filter(
-                                      (elm) => elm.id == product.id
-                                    )[0].quantity
-                                  ).toFixed(2)
-                                : (product.price * quantity).toFixed(2)}{" "}
-                            </span>
-                          </a>
-                          <a
-                            href="#compare"
-                            data-bs-toggle="offcanvas"
-                            aria-controls="compare"
-                            onClick={() => addToCompareItem(product.id)}
-                            className="box-icon hover-tooltip compare btn-icon-action"
-                          >
-                            <span className="icon icon-gitDiff" />
-                            <span className="tooltip text-caption-2">
-                              {isAddedtoCompareItem(product.id)
-                                ? "Already compared"
-                                : "Compare"}
-                            </span>
-                          </a>
-                          <a
-                            onClick={() => addToWishlist(product.id)}
-                            className="box-icon hover-tooltip text-caption-2 wishlist btn-icon-action"
-                          >
-                            <span className="icon icon-heart" />
-                            <span className="tooltip text-caption-2">
-                              {isAddedtoWishlist(product.id)
-                                ? "Already Wishlished"
-                                : "Wishlist"}
-                            </span>
-                          </a>
-                        </div>
+                        <AddToCart
+                          onClick={() => addProductToCart(product.id, quantity)}
+                          isAdded={isAddedToCartProducts(product.id)}
+                          price={
+                            isAddedToCartProducts(product.id)
+                              ? (
+                                product.price *
+                                cartProducts.filter(
+                                  (elm) => elm.id == product.id
+                                )[0].quantity
+                              ).toFixed(2)
+                              : (product.price * quantity).toFixed(2)
+                          }
+                        />
                         <a href="#" className="btn-style-3 text-btn-uppercase">
                           Buy it now
                         </a>
@@ -183,8 +148,8 @@ export default function Details3({ product = allProducts[0] }) {
                       <div className="tf-product-info-help">
                         <div className="tf-product-info-extra-link">
                           <a
-                            href="#delivery_return"
-                            data-bs-toggle="modal"
+                            onClick={() => setShowDeliveryReturn(true)}
+
                             className="tf-product-extra-icon"
                           >
                             <div className="icon">
@@ -195,8 +160,8 @@ export default function Details3({ product = allProducts[0] }) {
                             </p>
                           </a>
                           <a
-                            href="#ask_question"
-                            data-bs-toggle="modal"
+                            onClick={() => setShowAskQuestion(true)}
+
                             className="tf-product-extra-icon"
                           >
                             <div className="icon">
@@ -205,8 +170,8 @@ export default function Details3({ product = allProducts[0] }) {
                             <p className="text-caption-1">Ask A Question</p>
                           </a>
                           <a
-                            href="#share_social"
-                            data-bs-toggle="modal"
+                            onClick={() => setShowShare(true)}
+
                             className="tf-product-extra-icon"
                           >
                             <div className="icon">

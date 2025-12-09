@@ -18,19 +18,20 @@ import {
   swatchLinks,
 } from "@/data/menu";
 import { usePathname } from "next/navigation";
+import { useContextElement } from "@/context/Context";
 export default function Nav() {
   const pathname = usePathname();
+  const { setShowDemo } = useContextElement();
   return (
     <>
       {" "}
       <li
-        className={`menu-item ${
-          [...demoItems].some(
-            (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
-          )
-            ? "active"
-            : ""
-        } `}
+        className={`menu-item ${[...demoItems].some(
+          (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
+        )
+          ? "active"
+          : ""
+          } `}
       >
         <a href="#" className="item-link">
           Home
@@ -41,11 +42,10 @@ export default function Nav() {
             <div className="row-demo">
               {demoItems.slice(0, 12).map((item, index) => (
                 <div
-                  className={`demo-item ${
-                    pathname.split("/")[1] === item.href.split("/")[1]
-                      ? "active"
-                      : ""
-                  }`}
+                  className={`demo-item ${pathname.split("/")[1] === item.href.split("/")[1]
+                    ? "active"
+                    : ""
+                    }`}
                   key={item.href}
                 >
                   <Link href={item.href}>
@@ -77,7 +77,7 @@ export default function Nav() {
               ))}
             </div>
             <div className="text-center view-all-demo">
-              <a href="#modalDemo" data-bs-toggle="modal" className="tf-btn">
+              <a onClick={() => setShowDemo(true)} className="tf-btn cursor-pointer">
                 <span className="text">View All Demos</span>
               </a>
             </div>
@@ -85,16 +85,15 @@ export default function Nav() {
         </div>
       </li>
       <li
-        className={`menu-item ${
-          [
-            ...shopLayout,
-            ...shopFeatures,
-            ...productStyles,
-            ...otherShopMenus,
-          ].some((elm) => elm.href.split("/")[1] == pathname.split("/")[1])
-            ? "active"
-            : ""
-        } `}
+        className={`menu-item ${[
+          ...shopLayout,
+          ...shopFeatures,
+          ...productStyles,
+          ...otherShopMenus,
+        ].some((elm) => elm.href.split("/")[1] == pathname.split("/")[1])
+          ? "active"
+          : ""
+          } `}
       >
         <a href="#" className="item-link">
           Shop
@@ -110,11 +109,10 @@ export default function Nav() {
                     {shopLayout.map((link, index) => (
                       <li
                         key={index}
-                        className={`menu-item-li ${
-                          pathname.split("/")[1] == link.href.split("/")[1]
-                            ? "active"
-                            : ""
-                        } `}
+                        className={`menu-item-li ${pathname.split("/")[1] == link.href.split("/")[1]
+                          ? "active"
+                          : ""
+                          } `}
                       >
                         <Link href={link.href} className="menu-link-text">
                           {link.name}
@@ -131,11 +129,10 @@ export default function Nav() {
                     {shopFeatures.map((link, index) => (
                       <li
                         key={index}
-                        className={`menu-item-li ${
-                          pathname.split("/")[1] == link.href.split("/")[1]
-                            ? "active"
-                            : ""
-                        } `}
+                        className={`menu-item-li ${pathname.split("/")[1] == link.href.split("/")[1]
+                          ? "active"
+                          : ""
+                          } `}
                       >
                         <Link href={link.href} className="menu-link-text">
                           {link.name}
@@ -152,11 +149,10 @@ export default function Nav() {
                     {productStyles.map((style, index) => (
                       <li
                         key={index}
-                        className={`menu-item-li ${
-                          pathname.split("/")[1] == style.href.split("/")[1]
-                            ? "active"
-                            : ""
-                        } `}
+                        className={`menu-item-li ${pathname.split("/")[1] == style.href.split("/")[1]
+                          ? "active"
+                          : ""
+                          } `}
                       >
                         <Link href={style.href} className="menu-link-text">
                           {style.name}
@@ -173,11 +169,10 @@ export default function Nav() {
                     {otherShopMenus.map((link, index) => (
                       <li
                         key={index}
-                        className={`menu-item-li ${
-                          pathname.split("/")[1] == link.href.split("/")[1]
-                            ? "active"
-                            : ""
-                        } `}
+                        className={`menu-item-li ${pathname.split("/")[1] == link.href.split("/")[1]
+                          ? "active"
+                          : ""
+                          } `}
                       >
                         <Link href={link.href} className="menu-link-text">
                           {link.name}
@@ -215,13 +210,12 @@ export default function Nav() {
         </div>
       </li>
       <li
-        className={`menu-item ${
-          [...productLinks, ...swatchLinks, ...productFeatures].some(
-            (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
-          )
-            ? "active"
-            : ""
-        } `}
+        className={`menu-item ${[...productLinks, ...swatchLinks, ...productFeatures].some(
+          (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
+        )
+          ? "active"
+          : ""
+          } `}
       >
         <a href="#" className="item-link">
           Products
@@ -237,11 +231,10 @@ export default function Nav() {
                     {productLinks.map((link, index) => (
                       <li
                         key={index}
-                        className={`menu-item-li ${
-                          pathname.split("/")[1] == link.href.split("/")[1]
-                            ? "active"
-                            : ""
-                        } `}
+                        className={`menu-item-li ${pathname.split("/")[1] == link.href.split("/")[1]
+                          ? "active"
+                          : ""
+                          } `}
                       >
                         <Link href={link.href} className="menu-link-text">
                           {link.name}
@@ -258,11 +251,10 @@ export default function Nav() {
                     {swatchLinks.map((link, index) => (
                       <li
                         key={index}
-                        className={`menu-item-li ${
-                          pathname.split("/")[1] == link.href.split("/")[1]
-                            ? "active"
-                            : ""
-                        } `}
+                        className={`menu-item-li ${pathname.split("/")[1] == link.href.split("/")[1]
+                          ? "active"
+                          : ""
+                          } `}
                       >
                         <Link href={link.href} className="menu-link-text">
                           {link.name}
@@ -279,17 +271,15 @@ export default function Nav() {
                     {productFeatures.map((link, index) => (
                       <li
                         key={index}
-                        className={`menu-item-li ${
-                          pathname.split("/")[1] == link.href.split("/")[1]
-                            ? "active"
-                            : ""
-                        } `}
+                        className={`menu-item-li ${pathname.split("/")[1] == link.href.split("/")[1]
+                          ? "active"
+                          : ""
+                          } `}
                       >
                         <Link
                           href={link.href}
-                          className={`menu-link-text ${
-                            link.badge ? "position-relative" : ""
-                          } `}
+                          className={`menu-link-text ${link.badge ? "position-relative" : ""
+                            } `}
                         >
                           {link.name}
                           {link.badge && (
@@ -349,13 +339,12 @@ export default function Nav() {
         </div>
       </li>
       <li
-        className={`menu-item position-relative ${
-          [...blogLinks].some(
-            (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
-          )
-            ? "active"
-            : ""
-        } `}
+        className={`menu-item position-relative ${[...blogLinks].some(
+          (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
+        )
+          ? "active"
+          : ""
+          } `}
       >
         <a href="#" className="item-link">
           Blog
@@ -366,11 +355,10 @@ export default function Nav() {
             {blogLinks.map((link, index) => (
               <li
                 key={index}
-                className={`menu-item-li ${
-                  pathname.split("/")[1] == link.href.split("/")[1]
-                    ? "active"
-                    : ""
-                } `}
+                className={`menu-item-li ${pathname.split("/")[1] == link.href.split("/")[1]
+                  ? "active"
+                  : ""
+                  } `}
               >
                 <Link href={link.href} className="menu-link-text">
                   {link.name}
@@ -381,13 +369,12 @@ export default function Nav() {
         </div>
       </li>
       <li
-        className={`menu-item position-relative ${
-          [...otherPageLinks].some(
-            (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
-          )
-            ? "active"
-            : ""
-        } `}
+        className={`menu-item position-relative ${[...otherPageLinks].some(
+          (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
+        )
+          ? "active"
+          : ""
+          } `}
       >
         <a href="#" className="item-link">
           Pages
@@ -398,11 +385,10 @@ export default function Nav() {
             {otherPageLinks.map((link, index) => (
               <li
                 key={index}
-                className={`menu-item-li ${
-                  pathname.split("/")[1] == link.href.split("/")[1]
-                    ? "active"
-                    : ""
-                } `}
+                className={`menu-item-li ${pathname.split("/")[1] == link.href.split("/")[1]
+                  ? "active"
+                  : ""
+                  } `}
               >
                 <Link href={link.href} className="menu-link-text">
                   {link.name}
@@ -411,11 +397,6 @@ export default function Nav() {
             ))}
           </ul>
         </div>
-      </li>
-      <li className="menu-item">
-        <a href="https://themeforest.net/user/themesflat" className="item-link">
-          Buy Theme
-        </a>
       </li>
     </>
   );

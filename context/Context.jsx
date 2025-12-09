@@ -1,8 +1,5 @@
 "use client";
 import { allProducts } from "@/data/products";
-import { openCartModal } from "@/utlis/openCartModal";
-import { openWistlistModal } from "@/utlis/openWishlist";
-
 import React, { useEffect } from "react";
 import { useContext, useState } from "react";
 const dataContext = React.createContext();
@@ -17,6 +14,23 @@ export default function Context({ children }) {
   const [quickViewItem, setQuickViewItem] = useState(allProducts[0]);
   const [quickAddItem, setQuickAddItem] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
+
+  // Modal visibility states
+  const [showSearch, setShowSearch] = useState(false);
+  const [showCart, setShowCart] = useState(false);
+  const [showWishlist, setShowWishlist] = useState(false);
+  const [showQuickView, setShowQuickView] = useState(false);
+  const [showQuickAdd, setShowQuickAdd] = useState(false);
+  const [showSizeGuide, setShowSizeGuide] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showDemo, setShowDemo] = useState(false);
+  const [showCompare, setShowCompare] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showDeliveryReturn, setShowDeliveryReturn] = useState(false);
+  const [showAskQuestion, setShowAskQuestion] = useState(false);
+  const [showShare, setShowShare] = useState(false);
+  const [showCategories, setShowCategories] = useState(false);
+
   useEffect(() => {
     const subtotal = cartProducts.reduce((accumulator, product) => {
       return accumulator + product.quantity * product.price;
@@ -38,7 +52,7 @@ export default function Context({ children }) {
       };
       setCartProducts((pre) => [...pre, item]);
       if (isModal) {
-        openCartModal();
+        setShowCart(true);
       }
     }
   };
@@ -58,7 +72,7 @@ export default function Context({ children }) {
   const addToWishlist = (id) => {
     if (!wishList.includes(id)) {
       setWishList((pre) => [...pre, id]);
-      openWistlistModal();
+      setShowWishlist(true);
     }
   };
 
@@ -130,6 +144,34 @@ export default function Context({ children }) {
     compareItem,
     setCompareItem,
     updateQuantity,
+    showSearch,
+    setShowSearch,
+    showCart,
+    setShowCart,
+    showWishlist,
+    setShowWishlist,
+    showQuickView,
+    setShowQuickView,
+    showQuickAdd,
+    setShowQuickAdd,
+    showSizeGuide,
+    setShowSizeGuide,
+    showMobileMenu,
+    setShowMobileMenu,
+    showDemo,
+    setShowDemo,
+    showCompare,
+    setShowCompare,
+    showCategories,
+    setShowCategories,
+    showLogin,
+    setShowLogin,
+    showDeliveryReturn,
+    setShowDeliveryReturn,
+    showAskQuestion,
+    setShowAskQuestion,
+    showShare,
+    setShowShare,
   };
   return (
     <dataContext.Provider value={contextElement}>

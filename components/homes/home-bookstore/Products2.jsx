@@ -11,7 +11,7 @@ export default function Products2() {
     setQuickAddItem,
     addToWishlist,
     isAddedtoWishlist,
-    addToCompareItem,
+    addToCompareItem, setShowCompare,
     isAddedtoCompareItem,
     setQuickViewItem,
     addProductToCart,
@@ -120,7 +120,7 @@ export default function Products2() {
                     </div>
                   )}
                   <div className="list-product-btn">
-                    <a
+                    {/* <a
                       onClick={() => addToWishlist(product.id)}
                       className="box-icon wishlist btn-icon-action"
                     >
@@ -131,12 +131,12 @@ export default function Products2() {
                           ? "Already Wishlished"
                           : "Wishlist"}
                       </span>
-                    </a>
+                    </a> */}
                     <a
-                      href="#compare"
-                      data-bs-toggle="offcanvas"
-                      aria-controls="compare"
-                      onClick={() => addToCompareItem(product.id)}
+
+
+
+                      onClick={() => { addToCompareItem(product.id); setShowCompare(true); }}
                       className="box-icon compare btn-icon-action"
                     >
                       <span className="icon icon-gitDiff" />

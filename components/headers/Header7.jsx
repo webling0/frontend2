@@ -1,19 +1,21 @@
+"use client";
 import React from "react";
 import Nav from "./Nav";
 import Image from "next/image";
 import Link from "next/link";
 import CartLength from "../common/CartLength";
+import { useContextElement } from "@/context/Context";
+
 export default function Header7() {
+  const { setShowSearch, setShowCart, setShowMobileMenu } = useContextElement();
   return (
     <header id="header" className="header-default header-white bg-main">
       <div className="container">
         <div className="row wrapper-header align-items-center">
           <div className="col-md-4 col-3 d-xl-none">
             <a
-              href="#mobileMenu"
-              className="mobile-menu"
-              data-bs-toggle="offcanvas"
-              aria-controls="mobileMenu"
+              onClick={() => setShowMobileMenu(true)}
+              className="mobile-menu cursor-pointer"
             >
               <i className="icon icon-categories" />
             </a>
@@ -41,7 +43,7 @@ export default function Header7() {
               <li className="nav-search">
                 <a
                   href="#search"
-                  data-bs-toggle="modal"
+                  onClick={() => setShowSearch(true)}
                   className="nav-icon-item"
                 >
                   <svg
@@ -110,7 +112,7 @@ export default function Header7() {
                   </div>
                 </div>
               </li>
-              <li className="nav-wishlist">
+              {/* <li className="nav-wishlist">
                 <Link href={`/wish-list`} className="nav-icon-item">
                   <svg
                     className="icon"
@@ -129,11 +131,11 @@ export default function Header7() {
                     />
                   </svg>
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-cart">
                 <a
                   href="#shoppingCart"
-                  data-bs-toggle="modal"
+                  onClick={() => setShowCart(true)}
                   className="nav-icon-item"
                 >
                   <svg

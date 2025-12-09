@@ -16,14 +16,25 @@ import {
   swatchLinks,
 } from "@/data/menu";
 import { usePathname } from "next/navigation";
+import { useContextElement } from "@/context/Context";
+import { Offcanvas } from "react-bootstrap";
+
 export default function MobileMenu() {
+  const { showMobileMenu, setShowMobileMenu } = useContextElement();
   const pathname = usePathname();
+
+  const handleClose = () => setShowMobileMenu(false);
+
   return (
-    <div className="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
+    <Offcanvas
+      show={showMobileMenu}
+      onHide={handleClose}
+      className="offcanvas-start canvas-mb"
+      id="mobileMenu"
+    >
       <span
         className="icon-close icon-close-popup"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
+        onClick={handleClose}
       />
       <div className="mb-canvas-content">
         <div className="mb-body">
@@ -68,13 +79,12 @@ export default function MobileMenu() {
               <li className="nav-mb-item active">
                 <a
                   href="#dropdown-menu-one"
-                  className={`collapsed mb-menu-link ${
-                    [...demoItems].some(
-                      (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
-                    )
+                  className={`collapsed mb-menu-link ${[...demoItems].some(
+                    (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
+                  )
                       ? "active"
                       : ""
-                  } `}
+                    } `}
                   data-bs-toggle="collapse"
                   aria-expanded="true"
                   aria-controls="dropdown-menu-one"
@@ -88,11 +98,10 @@ export default function MobileMenu() {
                       <li key={i}>
                         <Link
                           href={link.href}
-                          className={`sub-nav-link ${
-                            pathname.split("/")[1] == link.href.split("/")[1]
+                          className={`sub-nav-link ${pathname.split("/")[1] == link.href.split("/")[1]
                               ? "active"
                               : ""
-                          } `}
+                            } `}
                         >
                           {link.name}
                         </Link>
@@ -104,8 +113,7 @@ export default function MobileMenu() {
               <li className="nav-mb-item">
                 <a
                   href="#dropdown-menu-two"
-                  className={`collapsed mb-menu-link ${
-                    [
+                  className={`collapsed mb-menu-link ${[
                       ...shopLayout,
                       ...shopFeatures,
                       ...productStyles,
@@ -115,7 +123,7 @@ export default function MobileMenu() {
                     )
                       ? "active"
                       : ""
-                  } `}
+                    } `}
                   data-bs-toggle="collapse"
                   aria-expanded="true"
                   aria-controls="dropdown-menu-two"
@@ -128,14 +136,13 @@ export default function MobileMenu() {
                     <li>
                       <a
                         href="#sub-shop-one"
-                        className={`sub-nav-link collapsed ${
-                          [...shopLayout].some(
-                            (elm) =>
-                              elm.href.split("/")[1] == pathname.split("/")[1]
-                          )
+                        className={`sub-nav-link collapsed ${[...shopLayout].some(
+                          (elm) =>
+                            elm.href.split("/")[1] == pathname.split("/")[1]
+                        )
                             ? "active"
                             : ""
-                        } `}
+                          } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
                         aria-controls="sub-shop-one"
@@ -149,12 +156,11 @@ export default function MobileMenu() {
                             <li key={i}>
                               <Link
                                 href={link.href}
-                                className={`sub-nav-link ${
-                                  pathname.split("/")[1] ==
-                                  link.href.split("/")[1]
+                                className={`sub-nav-link ${pathname.split("/")[1] ==
+                                    link.href.split("/")[1]
                                     ? "active"
                                     : ""
-                                } `}
+                                  } `}
                               >
                                 {link.name}
                               </Link>
@@ -166,14 +172,13 @@ export default function MobileMenu() {
                     <li>
                       <a
                         href="#sub-shop-two"
-                        className={`sub-nav-link collapsed ${
-                          [...shopFeatures].some(
-                            (elm) =>
-                              elm.href.split("/")[1] == pathname.split("/")[1]
-                          )
+                        className={`sub-nav-link collapsed ${[...shopFeatures].some(
+                          (elm) =>
+                            elm.href.split("/")[1] == pathname.split("/")[1]
+                        )
                             ? "active"
                             : ""
-                        } `}
+                          } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
                         aria-controls="sub-shop-two"
@@ -187,12 +192,11 @@ export default function MobileMenu() {
                             <li key={i}>
                               <Link
                                 href={link.href}
-                                className={`sub-nav-link ${
-                                  pathname.split("/")[1] ==
-                                  link.href.split("/")[1]
+                                className={`sub-nav-link ${pathname.split("/")[1] ==
+                                    link.href.split("/")[1]
                                     ? "active"
                                     : ""
-                                } `}
+                                  } `}
                               >
                                 {link.name}
                               </Link>
@@ -204,14 +208,13 @@ export default function MobileMenu() {
                     <li>
                       <a
                         href="#sub-shop-three"
-                        className={`sub-nav-link collapsed ${
-                          [...productStyles].some(
-                            (elm) =>
-                              elm.href.split("/")[1] == pathname.split("/")[1]
-                          )
+                        className={`sub-nav-link collapsed ${[...productStyles].some(
+                          (elm) =>
+                            elm.href.split("/")[1] == pathname.split("/")[1]
+                        )
                             ? "active"
                             : ""
-                        } `}
+                          } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
                         aria-controls="sub-shop-three"
@@ -225,12 +228,11 @@ export default function MobileMenu() {
                             <li key={i}>
                               <Link
                                 href={link.href}
-                                className={`sub-nav-link ${
-                                  pathname.split("/")[1] ==
-                                  link.href.split("/")[1]
+                                className={`sub-nav-link ${pathname.split("/")[1] ==
+                                    link.href.split("/")[1]
                                     ? "active"
                                     : ""
-                                } `}
+                                  } `}
                               >
                                 {link.name}
                               </Link>
@@ -242,14 +244,13 @@ export default function MobileMenu() {
                     <li>
                       <a
                         href="#sub-shop-four"
-                        className={`sub-nav-link collapsed ${
-                          [...otherShopMenus].some(
-                            (elm) =>
-                              elm.href.split("/")[1] == pathname.split("/")[1]
-                          )
+                        className={`sub-nav-link collapsed ${[...otherShopMenus].some(
+                          (elm) =>
+                            elm.href.split("/")[1] == pathname.split("/")[1]
+                        )
                             ? "active"
                             : ""
-                        } `}
+                          } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
                         aria-controls="sub-shop-four"
@@ -263,12 +264,11 @@ export default function MobileMenu() {
                             <li key={i}>
                               <Link
                                 href={link.href}
-                                className={`sub-nav-link ${
-                                  pathname.split("/")[1] ==
-                                  link.href.split("/")[1]
+                                className={`sub-nav-link ${pathname.split("/")[1] ==
+                                    link.href.split("/")[1]
                                     ? "active"
                                     : ""
-                                } `}
+                                  } `}
                               >
                                 {link.name}
                               </Link>
@@ -283,13 +283,12 @@ export default function MobileMenu() {
               <li className="nav-mb-item">
                 <a
                   href="#dropdown-menu-three"
-                  className={`collapsed mb-menu-link ${
-                    [...productLinks, ...swatchLinks, ...productFeatures].some(
-                      (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
-                    )
+                  className={`collapsed mb-menu-link ${[...productLinks, ...swatchLinks, ...productFeatures].some(
+                    (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
+                  )
                       ? "active"
                       : ""
-                  } `}
+                    } `}
                   data-bs-toggle="collapse"
                   aria-expanded="true"
                   aria-controls="dropdown-menu-three"
@@ -302,14 +301,13 @@ export default function MobileMenu() {
                     <li>
                       <a
                         href="#sub-product-one"
-                        className={`sub-nav-link collapsed ${
-                          [...productLinks].some(
-                            (elm) =>
-                              elm.href.split("/")[1] == pathname.split("/")[1]
-                          )
+                        className={`sub-nav-link collapsed ${[...productLinks].some(
+                          (elm) =>
+                            elm.href.split("/")[1] == pathname.split("/")[1]
+                        )
                             ? "active"
                             : ""
-                        } `}
+                          } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
                         aria-controls="sub-product-one"
@@ -323,12 +321,11 @@ export default function MobileMenu() {
                             <li key={i}>
                               <Link
                                 href={link.href}
-                                className={`sub-nav-link ${
-                                  pathname.split("/")[1] ==
-                                  link.href.split("/")[1]
+                                className={`sub-nav-link ${pathname.split("/")[1] ==
+                                    link.href.split("/")[1]
                                     ? "active"
                                     : ""
-                                } `}
+                                  } `}
                               >
                                 {link.name}
                               </Link>
@@ -340,14 +337,13 @@ export default function MobileMenu() {
                     <li>
                       <a
                         href="#sub-product-two"
-                        className={`sub-nav-link collapsed ${
-                          [...swatchLinks].some(
-                            (elm) =>
-                              elm.href.split("/")[1] == pathname.split("/")[1]
-                          )
+                        className={`sub-nav-link collapsed ${[...swatchLinks].some(
+                          (elm) =>
+                            elm.href.split("/")[1] == pathname.split("/")[1]
+                        )
                             ? "active"
                             : ""
-                        } `}
+                          } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
                         aria-controls="sub-product-two"
@@ -361,12 +357,11 @@ export default function MobileMenu() {
                             <li key={i}>
                               <Link
                                 href={link.href}
-                                className={`sub-nav-link ${
-                                  pathname.split("/")[1] ==
-                                  link.href.split("/")[1]
+                                className={`sub-nav-link ${pathname.split("/")[1] ==
+                                    link.href.split("/")[1]
                                     ? "active"
                                     : ""
-                                } `}
+                                  } `}
                               >
                                 {link.name}
                               </Link>
@@ -378,14 +373,13 @@ export default function MobileMenu() {
                     <li>
                       <a
                         href="#sub-product-three"
-                        className={`sub-nav-link collapsed ${
-                          [...productFeatures].some(
-                            (elm) =>
-                              elm.href.split("/")[1] == pathname.split("/")[1]
-                          )
+                        className={`sub-nav-link collapsed ${[...productFeatures].some(
+                          (elm) =>
+                            elm.href.split("/")[1] == pathname.split("/")[1]
+                        )
                             ? "active"
                             : ""
-                        } `}
+                          } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
                         aria-controls="sub-product-three"
@@ -399,12 +393,11 @@ export default function MobileMenu() {
                             <li key={i}>
                               <Link
                                 href={link.href}
-                                className={`sub-nav-link ${
-                                  pathname.split("/")[1] ==
-                                  link.href.split("/")[1]
+                                className={`sub-nav-link ${pathname.split("/")[1] ==
+                                    link.href.split("/")[1]
                                     ? "active"
                                     : ""
-                                } `}
+                                  } `}
                               >
                                 {link.name}
                               </Link>
@@ -419,13 +412,12 @@ export default function MobileMenu() {
               <li className="nav-mb-item">
                 <a
                   href="#dropdown-menu-four"
-                  className={`collapsed mb-menu-link ${
-                    [...blogLinks].some(
-                      (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
-                    )
+                  className={`collapsed mb-menu-link ${[...blogLinks].some(
+                    (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
+                  )
                       ? "active"
                       : ""
-                  } `}
+                    } `}
                   data-bs-toggle="collapse"
                   aria-expanded="true"
                   aria-controls="dropdown-menu-four"
@@ -439,11 +431,10 @@ export default function MobileMenu() {
                       <li key={i}>
                         <Link
                           href={link.href}
-                          className={`sub-nav-link ${
-                            pathname.split("/")[1] == link.href.split("/")[1]
+                          className={`sub-nav-link ${pathname.split("/")[1] == link.href.split("/")[1]
                               ? "active"
                               : ""
-                          } `}
+                            } `}
                         >
                           {link.name}
                         </Link>
@@ -455,13 +446,12 @@ export default function MobileMenu() {
               <li className="nav-mb-item">
                 <a
                   href="#dropdown-menu-five"
-                  className={`collapsed mb-menu-link ${
-                    [...otherPageLinks].some(
-                      (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
-                    )
+                  className={`collapsed mb-menu-link ${[...otherPageLinks].some(
+                    (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
+                  )
                       ? "active"
                       : ""
-                  } `}
+                    } `}
                   data-bs-toggle="collapse"
                   aria-expanded="true"
                   aria-controls="dropdown-menu-five"
@@ -475,11 +465,10 @@ export default function MobileMenu() {
                       <li key={i}>
                         <Link
                           href={link.href}
-                          className={`sub-nav-link ${
-                            pathname.split("/")[1] == link.href.split("/")[1]
+                          className={`sub-nav-link ${pathname.split("/")[1] == link.href.split("/")[1]
                               ? "active"
                               : ""
-                          } `}
+                            } `}
                         >
                           {link.name}
                         </Link>
@@ -586,6 +575,6 @@ export default function MobileMenu() {
           </div>
         </div>
       </div>
-    </div>
+    </Offcanvas>
   );
 }

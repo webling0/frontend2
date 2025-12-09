@@ -13,8 +13,8 @@ export default function DetailsExternal({ product }) {
   const {
     addProductToCart,
     isAddedToCartProducts,
-    addToCompareItem,
-    addToWishlist,
+    addToCompareItem, setShowCompare,
+    addToWishlist, setShowDeliveryReturn, setShowAskQuestion, setShowShare,
     isAddedtoWishlist,
     cartProducts,
     isAddedtoCompareItem,
@@ -112,8 +112,8 @@ export default function DetailsExternal({ product }) {
                         quantity={
                           isAddedToCartProducts(product.id)
                             ? cartProducts.filter(
-                                (elm) => elm.id == product.id
-                              )[0].quantity
+                              (elm) => elm.id == product.id
+                            )[0].quantity
                             : quantity
                         }
                         setQuantity={(qty) => {
@@ -145,39 +145,13 @@ export default function DetailsExternal({ product }) {
                           </svg>
                           Buy Theme On Amazon - $79.99
                         </a>
-
-                        <a
-                          href="#compare"
-                          data-bs-toggle="offcanvas"
-                          aria-controls="compare"
-                          onClick={() => addToCompareItem(product.id)}
-                          className="box-icon hover-tooltip compare btn-icon-action"
-                        >
-                          <span className="icon icon-gitDiff" />
-                          <span className="tooltip text-caption-2">
-                            {isAddedtoCompareItem(product.id)
-                              ? "Already compared"
-                              : "Compare"}
-                          </span>
-                        </a>
-                        <a
-                          onClick={() => addToWishlist(product.id)}
-                          className="box-icon hover-tooltip text-caption-2 wishlist btn-icon-action"
-                        >
-                          <span className="icon icon-heart" />
-                          <span className="tooltip text-caption-2">
-                            {isAddedtoWishlist(product.id)
-                              ? "Already Wishlished"
-                              : "Wishlist"}
-                          </span>
-                        </a>
                       </div>
                     </div>
                     <div className="tf-product-info-help">
                       <div className="tf-product-info-extra-link">
                         <a
-                          href="#delivery_return"
-                          data-bs-toggle="modal"
+                          onClick={() => setShowDeliveryReturn(true)}
+
                           className="tf-product-extra-icon"
                         >
                           <div className="icon">
@@ -188,8 +162,8 @@ export default function DetailsExternal({ product }) {
                           </p>
                         </a>
                         <a
-                          href="#ask_question"
-                          data-bs-toggle="modal"
+                          onClick={() => setShowAskQuestion(true)}
+
                           className="tf-product-extra-icon"
                         >
                           <div className="icon">
@@ -198,8 +172,8 @@ export default function DetailsExternal({ product }) {
                           <p className="text-caption-1">Ask A Question</p>
                         </a>
                         <a
-                          href="#share_social"
-                          data-bs-toggle="modal"
+                          onClick={() => setShowShare(true)}
+
                           className="tf-product-extra-icon"
                         >
                           <div className="icon">

@@ -4,8 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContextElement } from "@/context/Context";
 import { allProducts } from "@/data/products";
+import { Offcanvas } from "react-bootstrap";
+
 export default function Compare() {
-  const { removeFromCompareItem, compareItem, setCompareItem } =
+  const { removeFromCompareItem, compareItem, setCompareItem, showCompare, setShowCompare } =
     useContextElement();
   const [items, setItems] = useState([]);
   useEffect(() => {
@@ -13,12 +15,18 @@ export default function Compare() {
   }, [compareItem]);
 
   return (
-    <div className="offcanvas offcanvas-bottom offcanvas-compare" id="compare">
+    <Offcanvas
+      show={showCompare}
+      onHide={() => setShowCompare(false)}
+      placement="bottom"
+      className="offcanvas-compare"
+      id="compare"
+    >
       <div className="offcanvas-content">
         <div className="header">
           <span
             className="icon-close icon-close-popup"
-            data-bs-dismiss="offcanvas"
+            onClick={() => setShowCompare(false)}
             aria-label="Close"
           />
         </div>
@@ -131,6 +139,7 @@ export default function Compare() {
                       <Link
                         href={`/compare-products`}
                         className="tf-btn w-100 btn-fill radius-4"
+                        onClick={() => setShowCompare(false)}
                       >
                         <span className="text text-btn-uppercase">
                           Compare Products
@@ -138,7 +147,7 @@ export default function Compare() {
                       </Link>
                       <div
                         onClick={() => setCompareItem([])}
-                        className="tf-compapre-button-clear-all clear-file-delete tf-btn w-100 btn-white radius-4 has-border"
+                        className="tf-compapre-button-clear-all clear-file-delete tf-btn w-100 btn-white radius-4 has-border cursor-pointer"
                       >
                         <span className="text text-btn-uppercase">
                           Clear All Products
@@ -152,6 +161,6 @@ export default function Compare() {
           </div>
         </div>
       </div>
-    </div>
+    </Offcanvas>
   );
 }

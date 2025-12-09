@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useContextElement } from "@/context/Context";
 
 const sizes = [
   { id: "values-s", value: "S", price: 79.99, disabled: false },
@@ -11,6 +12,7 @@ const sizes = [
 ];
 
 export default function SizeSelect() {
+  const { setShowSizeGuide } = useContextElement();
   const [selectedSize, setSelectedSize] = useState("L"); // Default value is "L"
 
   const handleChange = (value) => {
@@ -26,9 +28,8 @@ export default function SizeSelect() {
           </span>
         </div>
         <a
-          href="#size-guide"
-          data-bs-toggle="modal"
-          className="size-guide text-title link"
+          onClick={() => setShowSizeGuide(true)}
+          className="size-guide text-title link cursor-pointer"
         >
           Size Guide
         </a>
@@ -44,9 +45,8 @@ export default function SizeSelect() {
               readOnly
             />
             <label
-              className={`style-text size-btn ${
-                disabled ? "type-disable" : ""
-              }`}
+              className={`style-text size-btn ${disabled ? "type-disable" : ""
+                }`}
               htmlFor={id}
               data-value={value}
               data-price={price}

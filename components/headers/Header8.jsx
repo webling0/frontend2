@@ -3,20 +3,19 @@ import Nav from "./Nav";
 import Image from "next/image";
 import Link from "next/link";
 import CartLength from "../common/CartLength";
+import MobileMenuTrigger from "./MobileMenuTrigger";
+import SearchTrigger from "./SearchTrigger";
+import CartTrigger from "./CartTrigger";
+// import { useContextElement } from "@/context/Context"; // Removed
+
 export default function Header8() {
+  // const { setShowSearch, setShowCart, setShowMobileMenu } = useContextElement(); // Removed
   return (
     <header id="header" className="header-default header-absolute">
       <div className="container">
         <div className="row wrapper-header align-items-center">
           <div className="col-md-4 col-3 d-xl-none">
-            <a
-              href="#mobileMenu"
-              className="mobile-menu"
-              data-bs-toggle="offcanvas"
-              aria-controls="mobileMenu"
-            >
-              <i className="icon icon-categories" />
-            </a>
+            <MobileMenuTrigger />
           </div>
           <div className="col-xl-3 col-md-4 col-6">
             <Link href={`/`} className="logo-header">
@@ -39,13 +38,9 @@ export default function Header8() {
           <div className="col-xl-3 col-md-4 col-3">
             <ul className="nav-icon d-flex justify-content-end align-items-center">
               <li className="nav-search">
-                <a
-                  href="#search"
-                  data-bs-toggle="modal"
-                  className="nav-icon-item"
-                >
+                <SearchTrigger>
                   <span className="icon icon-search2" />
-                </a>
+                </SearchTrigger>
               </li>
               <li className="nav-account">
                 <a href="#" className="nav-icon-item">
@@ -66,22 +61,18 @@ export default function Header8() {
                   </div>
                 </div>
               </li>
-              <li className="nav-wishlist">
+              {/* <li className="nav-wishlist">
                 <Link href={`/wish-list`} className="nav-icon-item">
                   <span className="icon icon-heart" />
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-cart">
-                <a
-                  href="#shoppingCart"
-                  data-bs-toggle="modal"
-                  className="nav-icon-item"
-                >
+                <CartTrigger>
                   <span className="icon icon-ShoppingBagOpen" />
                   <span className="count-box">
                     <CartLength />
                   </span>
-                </a>
+                </CartTrigger>
               </li>
             </ul>
           </div>

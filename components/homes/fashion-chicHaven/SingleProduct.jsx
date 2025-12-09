@@ -65,7 +65,7 @@ export default function SingleProduct() {
     isAddedToCartProducts,
     addToWishlist,
     isAddedtoWishlist,
-    addToCompareItem,
+    addToCompareItem, setShowCompare,
     isAddedtoCompareItem,
     cartProducts,
     updateQuantity,
@@ -142,8 +142,8 @@ export default function SingleProduct() {
                       quantity={
                         isAddedToCartProducts(products44[1].id)
                           ? cartProducts.filter(
-                              (elm) => elm.id == products44[1].id
-                            )[0].quantity
+                            (elm) => elm.id == products44[1].id
+                          )[0].quantity
                           : quantity
                       }
                       setQuantity={(qty) => {
@@ -174,38 +174,12 @@ export default function SingleProduct() {
                           $
                           {isAddedToCartProducts(products44[1].id)
                             ? (
-                                products44[1].price *
-                                cartProducts.filter(
-                                  (elm) => elm.id == products44[1].id
-                                )[0].quantity
-                              ).toFixed(2)
+                              products44[1].price *
+                              cartProducts.filter(
+                                (elm) => elm.id == products44[1].id
+                              )[0].quantity
+                            ).toFixed(2)
                             : (products44[1].price * quantity).toFixed(2)}{" "}
-                        </span>
-                      </a>
-                      <a
-                        href="#compare"
-                        data-bs-toggle="offcanvas"
-                        onClick={() => addToCompareItem(products44[1].id)}
-                        aria-controls="compare"
-                        className="box-icon hover-tooltip compare btn-icon-action"
-                      >
-                        <span className="icon icon-gitDiff" />
-                        <span className="tooltip text-caption-2">
-                          {" "}
-                          {isAddedtoCompareItem(products44[1].id)
-                            ? "Already compared"
-                            : "Compare"}
-                        </span>
-                      </a>
-                      <a
-                        onClick={() => addToWishlist(products44[1].id)}
-                        className="box-icon hover-tooltip text-caption-2 wishlist btn-icon-action"
-                      >
-                        <span className="icon icon-heart" />
-                        <span className="tooltip text-caption-2">
-                          {isAddedtoWishlist(products44[1].id)
-                            ? "Already Wishlished"
-                            : "Wishlist"}
                         </span>
                       </a>
                     </div>

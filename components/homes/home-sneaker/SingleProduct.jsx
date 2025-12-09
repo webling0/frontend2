@@ -45,7 +45,7 @@ export default function SingleProduct() {
     isAddedToCartProducts,
     addToWishlist,
     isAddedtoWishlist,
-    addToCompareItem,
+    addToCompareItem, setShowCompare,
     isAddedtoCompareItem,
     cartProducts,
     updateQuantity,
@@ -133,8 +133,8 @@ export default function SingleProduct() {
                         quantity={
                           isAddedToCartProducts(products44[4].id)
                             ? cartProducts.filter(
-                                (elm) => elm.id == products44[4].id
-                              )[0].quantity
+                              (elm) => elm.id == products44[4].id
+                            )[0].quantity
                             : quantity
                         }
                         setQuantity={(qty) => {
@@ -164,31 +164,6 @@ export default function SingleProduct() {
                           </span>
                           <span className="tf-qty-price total-price">
                             ${products44[4].price.toFixed(2)}
-                          </span>
-                        </a>
-                        <a
-                          href="#compare"
-                          data-bs-toggle="offcanvas"
-                          aria-controls="compare"
-                          onClick={() => addToCompareItem(products44[4].id)}
-                          className="box-icon hover-tooltip compare btn-icon-action"
-                        >
-                          <span className="icon icon-gitDiff" />
-                          <span className="tooltip text-caption-2">
-                            {isAddedtoCompareItem(products44[4].id)
-                              ? "Already compared"
-                              : "Compare"}
-                          </span>
-                        </a>
-                        <a
-                          onClick={() => addToWishlist(products44[4].id)}
-                          className="box-icon hover-tooltip text-caption-2 wishlist btn-icon-action"
-                        >
-                          <span className="icon icon-heart" />
-                          <span className="tooltip text-caption-2">
-                            {isAddedtoWishlist(products44[4].id)
-                              ? "Already Wishlished"
-                              : "Wishlist"}
                           </span>
                         </a>
                       </div>

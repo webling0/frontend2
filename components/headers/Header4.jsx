@@ -5,7 +5,13 @@ import Link from "next/link";
 import CurrencySelect from "../common/CurrencySelect";
 import LanguageSelect from "../common/LanguageSelect";
 import CartLength from "../common/CartLength";
+import MobileMenuTrigger from "./MobileMenuTrigger";
+import SearchTrigger from "./SearchTrigger";
+import CartTrigger from "./CartTrigger";
+// import { useContextElement } from "@/context/Context"; // Removed
+
 export default function Header4() {
+  // const { setShowSearch, setShowCart, setShowMobileMenu } = useContextElement(); // Removed
   return (
     <header id="header" className="header-default header-style-4">
       <div className="main-header">
@@ -31,14 +37,7 @@ export default function Header4() {
               </div>
             </div>
             <div className="col-md-4 col-3 d-xl-none">
-              <a
-                href="#mobileMenu"
-                className="mobile-menu"
-                data-bs-toggle="offcanvas"
-                aria-controls="mobileMenu"
-              >
-                <i className="icon icon-categories" />
-              </a>
+              <MobileMenuTrigger />
             </div>
             <div className="col-xl-2 col-md-4 col-6 text-center">
               <Link href={`/`} className="logo-header">
@@ -51,25 +50,18 @@ export default function Header4() {
                 />
               </Link>
             </div>
+
             <div className="col-xl-5 col-md-4 col-3">
               <ul className="nav-icon d-flex justify-content-end align-items-center">
                 <li className="nav-search">
-                  <a
-                    href="#search"
-                    data-bs-toggle="modal"
-                    className="nav-icon-item"
-                  >
+                  <SearchTrigger>
                     <span className="icon icon-search2" />
-                  </a>
+                  </SearchTrigger>
                 </li>
                 <li className="nav-account">
-                  <a
-                    href="#login"
-                    data-bs-toggle="modal"
-                    className="nav-icon-item"
-                  >
+                  <Link href={`/login`} className="nav-icon-item">
                     <span className="icon icon-user" />
-                  </a>
+                  </Link>
                   <div className="dropdown-account dropdown-login">
                     <div className="sub-top">
                       <Link href={`/login`} className="tf-btn btn-reset">
@@ -85,22 +77,18 @@ export default function Header4() {
                     </div>
                   </div>
                 </li>
-                <li className="nav-wishlist">
+                {/* <li className="nav-wishlist">
                   <Link href={`/wish-list`} className="nav-icon-item">
                     <span className="icon icon-heart" />
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-cart">
-                  <a
-                    href="#shoppingCart"
-                    data-bs-toggle="modal"
-                    className="nav-icon-item"
-                  >
+                  <CartTrigger>
                     <span className="icon icon-ShoppingBagOpen" />
                     <span className="count-box">
                       <CartLength />
                     </span>
-                  </a>
+                  </CartTrigger>
                 </li>
               </ul>
             </div>

@@ -11,11 +11,12 @@ export default function ProductCard4({ product }) {
     setQuickAddItem,
     addToWishlist,
     isAddedtoWishlist,
-    addToCompareItem,
+    addToCompareItem, setShowCompare,
     isAddedtoCompareItem,
     setQuickViewItem,
     addProductToCart,
     isAddedToCartProducts,
+    setShowQuickView,
   } = useContextElement();
 
   useEffect(() => {
@@ -24,9 +25,8 @@ export default function ProductCard4({ product }) {
 
   return (
     <div
-      className={`card-product wow fadeInUp ${
-        product.isOnSale ? "on-sale" : ""
-      } ${product.sizes ? "card-product-size" : ""}`}
+      className={`card-product wow fadeInUp ${product.isOnSale ? "on-sale" : ""
+        } ${product.sizes ? "card-product-size" : ""}`}
     >
       <div className="card-product-wrapper">
         <Link href={`/product-detail/${product.id}`} className="product-img">
@@ -174,7 +174,7 @@ export default function ProductCard4({ product }) {
           ""
         )}
         <div className="list-product-btn">
-          <a
+          {/* <a
             onClick={() => addToWishlist(product.id)}
             className="box-icon wishlist btn-icon-action"
           >
@@ -184,12 +184,12 @@ export default function ProductCard4({ product }) {
                 ? "Already Wishlished"
                 : "Wishlist"}
             </span>
-          </a>
+          </a> */}
           <a
-            href="#compare"
-            data-bs-toggle="offcanvas"
-            aria-controls="compare"
-            onClick={() => addToCompareItem(product.id)}
+
+
+
+            onClick={() => { addToCompareItem(product.id); setShowCompare(true); }}
             className="box-icon compare btn-icon-action"
           >
             <span className="icon icon-gitDiff" />
@@ -201,9 +201,11 @@ export default function ProductCard4({ product }) {
             </span>
           </a>
           <a
-            href="#quickView"
-            onClick={() => setQuickViewItem(product)}
-            data-bs-toggle="modal"
+
+            onClick={() => {
+              setQuickViewItem(product);
+              setShowQuickView(true);
+            }}
             className="box-icon quickview tf-btn-loading"
           >
             <span className="icon icon-eye" />
@@ -213,7 +215,6 @@ export default function ProductCard4({ product }) {
         <div className="list-btn-main">
           <a
             href="#shoppingCart"
-            data-bs-toggle="modal"
             className="btn-main-product"
             onClick={() => addProductToCart(product.id)}
           >

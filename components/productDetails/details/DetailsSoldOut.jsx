@@ -14,11 +14,11 @@ export default function DetailsSoldOut({ product }) {
   const {
     addProductToCart,
     isAddedToCartProducts,
-    addToWishlist,
+    addToWishlist, setShowDeliveryReturn, setShowAskQuestion, setShowShare,
     isAddedtoWishlist,
     isAddedtoCompareItem,
     cartProducts,
-    addToCompareItem,
+    addToCompareItem, setShowCompare,
     updateQuantity,
   } = useContextElement();
 
@@ -114,8 +114,8 @@ export default function DetailsSoldOut({ product }) {
                         quantity={
                           isAddedToCartProducts(product.id)
                             ? cartProducts.filter(
-                                (elm) => elm.id == product.id
-                              )[0].quantity
+                              (elm) => elm.id == product.id
+                            )[0].quantity
                             : quantity
                         }
                         setQuantity={(qty) => {
@@ -131,38 +131,12 @@ export default function DetailsSoldOut({ product }) {
                       <div className="tf-product-info-by-btn mb_10">
                         <a
                           href="#shoppingCart"
-                          data-bs-toggle="modal"
+
                           className="btn-style-2 flex-grow-1 text-btn-uppercase fw-6 btn-add-to-cart btn-sold-out"
                         >
                           <span>Sold out -&nbsp;</span>
                           <span className="tf-qty-price total-price">
                             ${(product.price * quantity).toFixed(2)}
-                          </span>
-                        </a>
-
-                        <a
-                          href="#compare"
-                          data-bs-toggle="offcanvas"
-                          aria-controls="compare"
-                          onClick={() => addToCompareItem(product.id)}
-                          className="box-icon hover-tooltip compare btn-icon-action"
-                        >
-                          <span className="icon icon-gitDiff" />
-                          <span className="tooltip text-caption-2">
-                            {isAddedtoCompareItem(product.id)
-                              ? "Already compared"
-                              : "Compare"}
-                          </span>
-                        </a>
-                        <a
-                          onClick={() => addToWishlist(product.id)}
-                          className="box-icon hover-tooltip text-caption-2 wishlist btn-icon-action"
-                        >
-                          <span className="icon icon-heart" />
-                          <span className="tooltip text-caption-2">
-                            {isAddedtoWishlist(product.id)
-                              ? "Already Wishlished"
-                              : "Wishlist"}
                           </span>
                         </a>
                       </div>
@@ -173,8 +147,8 @@ export default function DetailsSoldOut({ product }) {
                     <div className="tf-product-info-help">
                       <div className="tf-product-info-extra-link">
                         <a
-                          href="#delivery_return"
-                          data-bs-toggle="modal"
+                          onClick={() => setShowDeliveryReturn(true)}
+
                           className="tf-product-extra-icon"
                         >
                           <div className="icon">
@@ -185,8 +159,8 @@ export default function DetailsSoldOut({ product }) {
                           </p>
                         </a>
                         <a
-                          href="#ask_question"
-                          data-bs-toggle="modal"
+                          onClick={() => setShowAskQuestion(true)}
+
                           className="tf-product-extra-icon"
                         >
                           <div className="icon">
@@ -195,8 +169,8 @@ export default function DetailsSoldOut({ product }) {
                           <p className="text-caption-1">Ask A Question</p>
                         </a>
                         <a
-                          href="#share_social"
-                          data-bs-toggle="modal"
+                          onClick={() => setShowShare(true)}
+
                           className="tf-product-extra-icon"
                         >
                           <div className="icon">

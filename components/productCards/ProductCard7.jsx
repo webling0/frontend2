@@ -11,11 +11,12 @@ export default function ProductCard7({ product, gridClass = "" }) {
     setQuickAddItem,
     addToWishlist,
     isAddedtoWishlist,
-    addToCompareItem,
+    addToCompareItem, setShowCompare,
     isAddedtoCompareItem,
     setQuickViewItem,
     addProductToCart,
     isAddedToCartProducts,
+    setShowQuickView,
   } = useContextElement();
 
   useEffect(() => {
@@ -24,9 +25,8 @@ export default function ProductCard7({ product, gridClass = "" }) {
 
   return (
     <div
-      className={`card-product style-2 ${gridClass} ${
-        product.isOnSale ? "on-sale" : ""
-      } ${product.sizes ? "card-product-size" : ""}`}
+      className={`card-product style-2 ${gridClass} ${product.isOnSale ? "on-sale" : ""
+        } ${product.sizes ? "card-product-size" : ""}`}
     >
       <div className="card-product-wrapper">
         <Link href={`/product-detail/${product.id}`} className="product-img">
@@ -182,7 +182,7 @@ export default function ProductCard7({ product, gridClass = "" }) {
             <span className="icon icon-ShoppingBagOpen" />
             <span className="tooltip">Add To Cart</span>
           </a>
-          <a
+          {/* <a
             onClick={() => addToWishlist(product.id)}
             className="box-icon wishlist btn-icon-action"
           >
@@ -192,12 +192,12 @@ export default function ProductCard7({ product, gridClass = "" }) {
                 ? "Already Wishlished"
                 : "Wishlist"}
             </span>
-          </a>
+          </a> */}
           <a
-            href="#compare"
-            data-bs-toggle="offcanvas"
-            aria-controls="compare"
-            onClick={() => addToCompareItem(product.id)}
+
+
+
+            onClick={() => { addToCompareItem(product.id); setShowCompare(true); }}
             className="box-icon compare btn-icon-action"
           >
             <span className="icon icon-gitDiff" />
@@ -209,9 +209,11 @@ export default function ProductCard7({ product, gridClass = "" }) {
             </span>
           </a>
           <a
-            href="#quickView"
-            onClick={() => setQuickViewItem(product)}
-            data-bs-toggle="modal"
+
+            onClick={() => {
+              setQuickViewItem(product);
+              setShowQuickView(true);
+            }}
             className="box-icon quickview tf-btn-loading"
           >
             <span className="icon icon-eye" />
@@ -234,9 +236,8 @@ export default function ProductCard7({ product, gridClass = "" }) {
             {product.colors.map((color, index) => (
               <li
                 key={index}
-                className={`list-color-item color-swatch ${
-                  currentImage == color.imgSrc ? "active" : ""
-                }  ${color.bgColor == "bg-white" ? "line" : ""}`}
+                className={`list-color-item color-swatch ${currentImage == color.imgSrc ? "active" : ""
+                  }  ${color.bgColor == "bg-white" ? "line" : ""}`}
                 onMouseOver={() => setCurrentImage(color.imgSrc)}
               >
                 <span className={`swatch-value ${color.bgColor}`} />
