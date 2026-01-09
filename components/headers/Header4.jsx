@@ -59,12 +59,12 @@ export default function Header4() {
                   </SearchTrigger>
                 </li>
                 <li className="nav-account">
-                  <Link href={`/login`} className="nav-icon-item">
+                  <Link href={`/account/login`} className="nav-icon-item">
                     <span className="icon icon-user" />
                   </Link>
                   <div className="dropdown-account dropdown-login">
                     <div className="sub-top">
-                      <Link href={`/login`} className="tf-btn btn-reset">
+                      <Link href={`/account/login`} className="tf-btn btn-reset">
                         Login
                       </Link>
                       <p className="text-center text-secondary-2">

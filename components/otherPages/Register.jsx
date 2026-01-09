@@ -55,15 +55,13 @@ export default function Register() {
                     required
                   />
                   <span
-                    className={`toggle-password ${
-                      !(passwordType === "text") ? "unshow" : ""
-                    }`}
+                    className={`toggle-password ${!(passwordType === "text") ? "unshow" : ""
+                      }`}
                     onClick={togglePassword}
                   >
                     <i
-                      className={`icon-eye-${
-                        !(passwordType === "text") ? "hide" : "show"
-                      }-line`}
+                      className={`icon-eye-${!(passwordType === "text") ? "hide" : "show"
+                        }-line`}
                     />
                   </span>
                 </fieldset>
@@ -80,15 +78,13 @@ export default function Register() {
                     required
                   />
                   <span
-                    className={`toggle-password ${
-                      !(confirmPasswordType === "text") ? "unshow" : ""
-                    }`}
+                    className={`toggle-password ${!(confirmPasswordType === "text") ? "unshow" : ""
+                      }`}
                     onClick={toggleConfirmPassword}
                   >
                     <i
-                      className={`icon-eye-${
-                        !(confirmPasswordType === "text") ? "hide" : "show"
-                      }-line`}
+                      className={`icon-eye-${!(confirmPasswordType === "text") ? "hide" : "show"
+                        }-line`}
                     />
                   </span>
                 </fieldset>
@@ -132,7 +128,7 @@ export default function Register() {
               saved preferences, and more. We're thrilled to have you with us
               again!
             </p>
-            <Link href={`/login`} className="tf-btn btn-fill">
+            <Link href={`/account/login`} className="tf-btn btn-fill">
               <span className="text text-button">Login</span>
             </Link>
           </div>

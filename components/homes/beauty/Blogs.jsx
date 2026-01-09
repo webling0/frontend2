@@ -55,7 +55,7 @@ export default function Blogs() {
                   </p>
                   <div>
                     <h6 className="title fw-5">
-                      <Link className="link" href={`/blog-detail/${item.id}`}>
+                      <Link className="link" href={`/blogs/blog-detail/${item.id}`}>
                         {item.title}
                       </Link>
                     </h6>

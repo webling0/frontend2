@@ -7,13 +7,12 @@ import "../public/css/animate.css";
 import "../public/scss/main.scss";
 import "photoswipe/style.css";
 import "react-range-slider-input/dist/style.css";
-import "../public/css/image-compare-viewer.min.css";
+// import "../public/css/image-compare-viewer.min.css";
 import Context from "@/context/Context";
 import RouteChangeHandler from "@/components/common/RouteChangeHandler";
 import CartModal from "@/components/modals/CartModal";
 import QuickView from "@/components/modals/QuickView";
 import QuickAdd from "@/components/modals/QuickAdd";
-import Compare from "@/components/modals/Compare";
 import MobileMenu from "@/components/modals/MobileMenu";
 import NewsLetterModal from "@/components/modals/NewsLetterModal";
 import SearchModal from "@/components/modals/SearchModal";
@@ -40,7 +39,6 @@ export default function RootLayout({ children }) {
           <CartModal />
           <QuickView />
           <QuickAdd />
-          <Compare />
           <MobileMenu />
 
           <NewsLetterModal />

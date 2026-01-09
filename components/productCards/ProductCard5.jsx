@@ -174,33 +174,6 @@ export default function ProductCard5({ product = products34[0] }) {
           ""
         )}
         <div className="list-product-btn">
-          {/* <a
-            href="#"
-            onClick={() => addToWishlist(product.id)}
-            className="box-icon wishlist btn-icon-action"
-          >
-            <span className="icon icon-heart" />
-            <span className="tooltip">
-              {isAddedtoWishlist(product.id)
-                ? "Already Wishlished"
-                : "Wishlist"}
-            </span>
-          </a> */}
-          <a
-
-
-
-            className="box-icon compare btn-icon-action"
-            onClick={() => { addToCompareItem(product.id); setShowCompare(true); }}
-          >
-            <span className="icon icon-gitDiff" />
-            <span className="tooltip">
-              {" "}
-              {isAddedtoCompareItem(product.id)
-                ? "Already compared"
-                : "Compare"}
-            </span>
-          </a>
           <a
 
             onClick={() => {

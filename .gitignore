@@ -1,13 +1,47 @@
-# Ignorar archivos compilados y directorios generados
-/dist/
-/out/
-/node_modules/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+yarn.lock
+package-lock.json
+
+# testing
+/coverage
+
+# next.js
 /.next/
+/out/
 
-# Ignorar archivos de configuración específicos
-.env
-.env.local
+# production
+/build
+/dist/
 
-# Ignorar archivos generados por el sistema operativo
+# misc
 .DS_Store
+*.pem
 Thumbs.db
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# workspace files
+.vscode
+.idea
+
+# temporary files
+*.zip

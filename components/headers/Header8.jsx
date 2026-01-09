@@ -48,7 +48,7 @@ export default function Header8() {
                 </a>
                 <div className="dropdown-account dropdown-login">
                   <div className="sub-top">
-                    <Link href={`/login`} className="tf-btn btn-reset">
+                    <Link href={`/account/login`} className="tf-btn btn-reset">
                       Login
                     </Link>
                     <p className="text-center text-secondary-2">

@@ -34,13 +34,13 @@ export default function Blogs() {
                   {item.date}
                 </p>
                 <h6 className="title">
-                  <Link className="link" href={`/blog-detail/${item.id}`}>
+                  <Link className="link" href={`/blogs/blog-detail/${item.id}`}>
                     {item.title}
                   </Link>
                 </h6>
                 <p>{item.description}</p>
                 <Link
-                  href={`/blog-detail/${item.id}`}
+                  href={`/blogs/blog-detail/${item.id}`}
                   className="link text-btn-uppercase bot-button"
                 >
                   Read More

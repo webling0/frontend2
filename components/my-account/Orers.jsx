@@ -23,7 +23,7 @@ export default function Orers() {
                 <td>$200.0 for 1 items</td>
                 <td>
                   <Link
-                    href={`/my-account-orders-details`}
+                    href={`/account/orders-details`}
                     className="tf-btn btn-fill radius-4"
                   >
                     <span className="text">View</span>
@@ -37,7 +37,7 @@ export default function Orers() {
                 <td>$300.0 for 1 items</td>
                 <td>
                   <Link
-                    href={`/my-account-orders-details`}
+                    href={`/account/orders-details`}
                     className="tf-btn btn-fill radius-4"
                   >
                     <span className="text">View</span>
@@ -51,7 +51,7 @@ export default function Orers() {
                 <td>$400.0 for 1 items</td>
                 <td>
                   <Link
-                    href={`/my-account-orders-details`}
+                    href={`/account/orders-details`}
                     className="tf-btn btn-fill radius-4"
                   >
                     <span className="text">View</span>

@@ -44,7 +44,7 @@ export default function BlogGrid() {
                     </div>
                     <div>
                       <h6 className="title fw-5">
-                        <Link className="link" href={`/blog-detail/${blog.id}`}>
+                        <Link className="link" href={`/blogs/blog-detail/${blog.id}`}>
                           {blog.title}
                         </Link>
                       </h6>

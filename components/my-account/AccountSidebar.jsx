@@ -23,10 +23,9 @@ export default function AccountSidebar() {
         <ul className="my-account-nav">
           <li>
             <Link
-              href={`/my-account`}
-              className={`my-account-nav-item ${
-                pathname == "/my-account" ? "active" : ""
-              } `}
+              href={`/account`}
+              className={`my-account-nav-item ${pathname == "/account" ? "active" : ""
+                } `}
             >
               <svg
                 width={24}
@@ -55,10 +54,9 @@ export default function AccountSidebar() {
           </li>
           <li>
             <Link
-              href={`/my-account-orders`}
-              className={`my-account-nav-item ${
-                pathname == "/my-account-orders" ? "active" : ""
-              } `}
+              href={`/account/orders`}
+              className={`my-account-nav-item ${pathname == "/account/orders" ? "active" : ""
+                } `}
             >
               <svg
                 width={24}
@@ -80,10 +78,9 @@ export default function AccountSidebar() {
           </li>
           <li>
             <Link
-              href={`/my-account-address`}
-              className={`my-account-nav-item ${
-                pathname == "/my-account-address" ? "active" : ""
-              } `}
+              href={`/account/address`}
+              className={`my-account-nav-item ${pathname == "/account/address" ? "active" : ""
+                } `}
             >
               <svg
                 width={24}
@@ -112,10 +109,9 @@ export default function AccountSidebar() {
           </li>
           <li>
             <Link
-              href={`/login`}
-              className={`my-account-nav-item ${
-                pathname == "/login" ? "active" : ""
-              } `}
+              href={`/account/login`}
+              className={`my-account-nav-item ${pathname == "/login" ? "active" : ""
+                } `}
             >
               <svg
                 width={24}

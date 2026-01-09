@@ -38,7 +38,7 @@ export default function OrderTrac() {
               saved preferences, and more. We're thrilled to have you with us
               again!
             </p>
-            <Link href={`/login`} className="tf-btn btn-fill">
+            <Link href={`/account/login`} className="tf-btn btn-fill">
               <span className="text">Login</span>
             </Link>
           </div>

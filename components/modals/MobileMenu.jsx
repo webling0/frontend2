@@ -82,8 +82,8 @@ export default function MobileMenu() {
                   className={`collapsed mb-menu-link ${[...demoItems].some(
                     (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
                   )
-                      ? "active"
-                      : ""
+                    ? "active"
+                    : ""
                     } `}
                   data-bs-toggle="collapse"
                   aria-expanded="true"
@@ -99,8 +99,8 @@ export default function MobileMenu() {
                         <Link
                           href={link.href}
                           className={`sub-nav-link ${pathname.split("/")[1] == link.href.split("/")[1]
-                              ? "active"
-                              : ""
+                            ? "active"
+                            : ""
                             } `}
                         >
                           {link.name}
@@ -114,15 +114,15 @@ export default function MobileMenu() {
                 <a
                   href="#dropdown-menu-two"
                   className={`collapsed mb-menu-link ${[
-                      ...shopLayout,
-                      ...shopFeatures,
-                      ...productStyles,
-                      ...otherShopMenus,
-                    ].some(
-                      (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
-                    )
-                      ? "active"
-                      : ""
+                    ...shopLayout,
+                    ...shopFeatures,
+                    ...productStyles,
+                    ...otherShopMenus,
+                  ].some(
+                    (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
+                  )
+                    ? "active"
+                    : ""
                     } `}
                   data-bs-toggle="collapse"
                   aria-expanded="true"
@@ -140,8 +140,8 @@ export default function MobileMenu() {
                           (elm) =>
                             elm.href.split("/")[1] == pathname.split("/")[1]
                         )
-                            ? "active"
-                            : ""
+                          ? "active"
+                          : ""
                           } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
@@ -157,9 +157,9 @@ export default function MobileMenu() {
                               <Link
                                 href={link.href}
                                 className={`sub-nav-link ${pathname.split("/")[1] ==
-                                    link.href.split("/")[1]
-                                    ? "active"
-                                    : ""
+                                  link.href.split("/")[1]
+                                  ? "active"
+                                  : ""
                                   } `}
                               >
                                 {link.name}
@@ -176,8 +176,8 @@ export default function MobileMenu() {
                           (elm) =>
                             elm.href.split("/")[1] == pathname.split("/")[1]
                         )
-                            ? "active"
-                            : ""
+                          ? "active"
+                          : ""
                           } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
@@ -193,9 +193,9 @@ export default function MobileMenu() {
                               <Link
                                 href={link.href}
                                 className={`sub-nav-link ${pathname.split("/")[1] ==
-                                    link.href.split("/")[1]
-                                    ? "active"
-                                    : ""
+                                  link.href.split("/")[1]
+                                  ? "active"
+                                  : ""
                                   } `}
                               >
                                 {link.name}
@@ -212,8 +212,8 @@ export default function MobileMenu() {
                           (elm) =>
                             elm.href.split("/")[1] == pathname.split("/")[1]
                         )
-                            ? "active"
-                            : ""
+                          ? "active"
+                          : ""
                           } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
@@ -229,9 +229,9 @@ export default function MobileMenu() {
                               <Link
                                 href={link.href}
                                 className={`sub-nav-link ${pathname.split("/")[1] ==
-                                    link.href.split("/")[1]
-                                    ? "active"
-                                    : ""
+                                  link.href.split("/")[1]
+                                  ? "active"
+                                  : ""
                                   } `}
                               >
                                 {link.name}
@@ -248,8 +248,8 @@ export default function MobileMenu() {
                           (elm) =>
                             elm.href.split("/")[1] == pathname.split("/")[1]
                         )
-                            ? "active"
-                            : ""
+                          ? "active"
+                          : ""
                           } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
@@ -265,9 +265,9 @@ export default function MobileMenu() {
                               <Link
                                 href={link.href}
                                 className={`sub-nav-link ${pathname.split("/")[1] ==
-                                    link.href.split("/")[1]
-                                    ? "active"
-                                    : ""
+                                  link.href.split("/")[1]
+                                  ? "active"
+                                  : ""
                                   } `}
                               >
                                 {link.name}
@@ -286,8 +286,8 @@ export default function MobileMenu() {
                   className={`collapsed mb-menu-link ${[...productLinks, ...swatchLinks, ...productFeatures].some(
                     (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
                   )
-                      ? "active"
-                      : ""
+                    ? "active"
+                    : ""
                     } `}
                   data-bs-toggle="collapse"
                   aria-expanded="true"
@@ -305,8 +305,8 @@ export default function MobileMenu() {
                           (elm) =>
                             elm.href.split("/")[1] == pathname.split("/")[1]
                         )
-                            ? "active"
-                            : ""
+                          ? "active"
+                          : ""
                           } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
@@ -322,9 +322,9 @@ export default function MobileMenu() {
                               <Link
                                 href={link.href}
                                 className={`sub-nav-link ${pathname.split("/")[1] ==
-                                    link.href.split("/")[1]
-                                    ? "active"
-                                    : ""
+                                  link.href.split("/")[1]
+                                  ? "active"
+                                  : ""
                                   } `}
                               >
                                 {link.name}
@@ -341,8 +341,8 @@ export default function MobileMenu() {
                           (elm) =>
                             elm.href.split("/")[1] == pathname.split("/")[1]
                         )
-                            ? "active"
-                            : ""
+                          ? "active"
+                          : ""
                           } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
@@ -358,9 +358,9 @@ export default function MobileMenu() {
                               <Link
                                 href={link.href}
                                 className={`sub-nav-link ${pathname.split("/")[1] ==
-                                    link.href.split("/")[1]
-                                    ? "active"
-                                    : ""
+                                  link.href.split("/")[1]
+                                  ? "active"
+                                  : ""
                                   } `}
                               >
                                 {link.name}
@@ -377,8 +377,8 @@ export default function MobileMenu() {
                           (elm) =>
                             elm.href.split("/")[1] == pathname.split("/")[1]
                         )
-                            ? "active"
-                            : ""
+                          ? "active"
+                          : ""
                           } `}
                         data-bs-toggle="collapse"
                         aria-expanded="true"
@@ -394,9 +394,9 @@ export default function MobileMenu() {
                               <Link
                                 href={link.href}
                                 className={`sub-nav-link ${pathname.split("/")[1] ==
-                                    link.href.split("/")[1]
-                                    ? "active"
-                                    : ""
+                                  link.href.split("/")[1]
+                                  ? "active"
+                                  : ""
                                   } `}
                               >
                                 {link.name}
@@ -415,8 +415,8 @@ export default function MobileMenu() {
                   className={`collapsed mb-menu-link ${[...blogLinks].some(
                     (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
                   )
-                      ? "active"
-                      : ""
+                    ? "active"
+                    : ""
                     } `}
                   data-bs-toggle="collapse"
                   aria-expanded="true"
@@ -432,8 +432,8 @@ export default function MobileMenu() {
                         <Link
                           href={link.href}
                           className={`sub-nav-link ${pathname.split("/")[1] == link.href.split("/")[1]
-                              ? "active"
-                              : ""
+                            ? "active"
+                            : ""
                             } `}
                         >
                           {link.name}
@@ -449,8 +449,8 @@ export default function MobileMenu() {
                   className={`collapsed mb-menu-link ${[...otherPageLinks].some(
                     (elm) => elm.href.split("/")[1] == pathname.split("/")[1]
                   )
-                      ? "active"
-                      : ""
+                    ? "active"
+                    : ""
                     } `}
                   data-bs-toggle="collapse"
                   aria-expanded="true"
@@ -466,8 +466,8 @@ export default function MobileMenu() {
                         <Link
                           href={link.href}
                           className={`sub-nav-link ${pathname.split("/")[1] == link.href.split("/")[1]
-                              ? "active"
-                              : ""
+                            ? "active"
+                            : ""
                             } `}
                         >
                           {link.name}
@@ -508,7 +508,7 @@ export default function MobileMenu() {
                 </svg>
                 Wishlist
               </Link>
-              <Link href={`/login`} className="site-nav-icon">
+              <Link href={`/account/login`} className="site-nav-icon">
                 <svg
                   className="icon"
                   width={18}

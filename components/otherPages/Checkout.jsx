@@ -34,7 +34,7 @@ export default function Checkout() {
               <div className="wrap">
                 <div className="title-login">
                   <p>Already have an account?</p>{" "}
-                  <Link href={`/login`} className="text-button">
+                  <Link href={`/account/login`} className="text-button">
                     Login here
                   </Link>
                 </div>
@@ -474,9 +474,8 @@ export default function Checkout() {
                     {discounts.map((item, index) => (
                       <SwiperSlide key={index}>
                         <div
-                          className={`box-discount ${
-                            activeDiscountIndex === index ? "active" : ""
-                          }`}
+                          className={`box-discount ${activeDiscountIndex === index ? "active" : ""
+                            }`}
                           onClick={() => setActiveDiscountIndex(index)}
                         >
                           <div className="discount-top">

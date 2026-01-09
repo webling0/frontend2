@@ -38,7 +38,7 @@ export default function Blogs() {
                   </li>
                 </ul>
                 <h5 className="title">
-                  <Link className="link" href={`/blog-detail/${item.id}`}>
+                  <Link className="link" href={`/blogs/blog-detail/${item.id}`}>
                     {item.title}
                   </Link>
                 </h5>
