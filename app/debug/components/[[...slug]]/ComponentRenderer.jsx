@@ -1,10 +1,13 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import Link from 'next/link';
+import CSSInspector from './CSSInspector';
 
 export default function ComponentRenderer({ componentPath, componentProps = {}, slug }) {
+    const [showCSSInspector, setShowCSSInspector] = useState(true);
+
     const Component = dynamic(() => import(`@/components/${componentPath}`).catch(err => {
         return () => (
             <div className="alert alert-danger">
@@ -29,14 +32,24 @@ export default function ComponentRenderer({ componentPath, componentProps = {}, 
                     {hasProps && <span className="ms-2 badge bg-info">带 props</span>}
                 </span>
                 <div className="d-flex gap-2">
+                    <button
+                        onClick={() => setShowCSSInspector(!showCSSInspector)}
+                        className={`btn btn-sm ${showCSSInspector ? 'btn-warning' : 'btn-outline-light'}`}
+                    >
+                        {showCSSInspector ? '隐藏' : '显示'} CSS 检查器
+                    </button>
                     <Link href="/debug/components" className="btn btn-sm btn-light">返回列表</Link>
                 </div>
             </div>
 
-            <div className="component-canvas border rounded p-4 bg-white">
-                <Suspense fallback={<div>Suspense 加载中...</div>}>
-                    <Component {...componentProps} />
-                </Suspense>
+            <div className="container-fluid">
+                <div className="component-canvas border rounded p-4 bg-white">
+                    <Suspense fallback={<div>Suspense 加载中...</div>}>
+                        <Component {...componentProps} />
+                    </Suspense>
+                </div>
+
+                <CSSInspector show={showCSSInspector} />
             </div>
         </div>
     );
